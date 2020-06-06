@@ -1,13 +1,14 @@
 package io.github.tanghuibo.cucumberstudy;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
-@SpringBootTest
-class CucumberStudyApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+/**
+ * @author tanghuibo
+ * @date 2020/6/6下午11:34
+ */
+@RunWith(Cucumber.class)
+@CucumberOptions(plugin = "html:src/test/resources/test-result", features = "src/test/resources/use-cases/")
+public class CucumberStudyApplicationTests {
 }
