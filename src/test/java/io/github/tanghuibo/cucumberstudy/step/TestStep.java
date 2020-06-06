@@ -3,11 +3,17 @@ package io.github.tanghuibo.cucumberstudy.step;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.tanghuibo.cucumberstudy.AbstractDefs;
+import io.github.tanghuibo.cucumberstudy.service.WelcomeService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import static org.junit.Assert.*;
 
-public class TestStep {
+public class TestStep extends AbstractDefs {
+
+    @Autowired
+    WelcomeService welcomeService;
 
     private String today;
     private String actualAnswer;
@@ -25,6 +31,11 @@ public class TestStep {
     @Then("^I should be told \"([^\"]*)\"$")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
+    }
+
+    @Then("I say hello")
+    public void iSayHello() {
+        welcomeService.sayHello();
     }
 
     static class IsItFriday {
